@@ -7,26 +7,26 @@
 
 \usepackage{pdfpages} % inclure un PDF (article...)
 \usepackage{amsmath, mathtools} % maths
-%\usepackage{icomma} util. virgule comme séparateur décimal
+\usepackage{icomma} %util. virgule comme séparateur décimal
 
 \pagestyle{headings} %% Personalisation des entêtes standard
 \usepackage{slantsc}
 
-\numberwithin{equation}{section}
+\numberwithin{equation}{chapter}
 \numberwithin{figure}{chapter}
 \numberwithin{table}{chapter}
 
 \usepackage{titlesec} % passe les gros titres en sansserif
-\titleformat{\chapter}[display]{\Huge\sffamily\bfseries}{\chaptername~\thechapter}{1ex}{}
-\titleformat{\section}[hang]{\Large\sffamily\bfseries}{\rlap{\thesection}}{2em}{}
-\titleformat{\subsection}[hang]{\large\sffamily\bfseries}{\rlap{\thesubsection}}{3em}{}
+\titleformat{\chapter}[display]{\huge\bfseries}{\chaptername~\thechapter}{3em}{}
+\titleformat{\section}[hang]{\Large\bfseries}{\rlap{\thesection}}{2em}{}
+\titleformat{\subsection}[hang]{\large\bfseries}{\rlap{\thesubsection}}{3em}{}
 
 
 
 \begin{document}
+\frontmatter %numbering \roman
 
-
-{\large
+{\Large
 
 \vspace*{1cm}
 
@@ -68,7 +68,7 @@ Pour obtenir le grade de \ \\[1ex]
 
 \flushleft{Sujet de la thèse :\ \\
 \ \\
-{\Large {\bf  Analyse quantitative et prédictabilité des épidémies de maladies transmises par les moustiques du genre \textit{Aedes} aux Antilles françaises\\ }}
+{\Large {\bf  Analyse comparative et prédictabilité des épidémies transmises par les moustiques du genre {\em Aedes}\\ }}
   
 
 \vspace*{1.5cm} 
@@ -83,27 +83,33 @@ Pour obtenir le grade de \ \\[1ex]
 \end{tabular}}
 
 }
+\newpage
+
+\null\newpage
 
 
-\frontmatter %numbering \roman
+\input{Preface.tex} 
 
-\chapter*{Introduction}
-% some intro text
+\tableofcontents
+
+
+
 \mainmatter % numbering \arabic + reset \page counter
-\chapter[Comparer]{Analyse comparative de la transmission du Chikungunya et du Zika} % some content
 
-\section{Introduction}
+\input{Intro.tex}
 
-\includepdf[pages={1-10}]{Articles/epidemics.pdf}
+\input{Chapitre1.tex}
+
+\input{Chapitre2.tex}
+
+\input{Chapitre3.tex}
+
+\input{Chapitre4.tex}
+
+\input{Conclusion}
 
 
-\chapter[Prédire]{Utilisation de données historiques pour prédire} % some content
 
-
-
-\appendix
-
-\chapter{Annexe A}
 \backmatter
 % bibliography
 \end{document}
