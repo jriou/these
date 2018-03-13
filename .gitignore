@@ -1,0 +1,12 @@
+/Figures/*
+/Litterature/*
+*.log
+*.synctex.gz
+*.pdf
+*.aux
+*.bbl
+*.blg
+*.lof
+*.toc
+*.loc
+*.lot

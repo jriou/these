@@ -1,9 +1,11 @@
-\documentclass[a4paper,11pt]{book} 
+\documentclass[a4paper,12pt]{book} 
 \usepackage[utf8]{inputenc}
 \usepackage[english,frenchb]{babel}
 \usepackage[T1]{fontenc} % césure
 \usepackage{lmodern} % polices
-\usepackage[margin=28mm,bindingoffset=10mm]{geometry} % marges larges : indispensable pour la lisibilité.
+\usepackage[margin=25mm,bindingoffset=6mm]{geometry} % marges larges : indispensable pour la lisibilité.
+%\usepackage{setspace}
+%\onehalfspacing le
 
 \usepackage{pdfpages} % inclure un PDF (article...)
 \usepackage{amsmath, mathtools} % maths
@@ -17,85 +19,92 @@
 \numberwithin{table}{chapter}
 
 \usepackage{titlesec} % passe les gros titres en sansserif
-\titleformat{\chapter}[display]{\huge\bfseries}{\chaptername~\thechapter}{3em}{}
+\titleformat{\chapter}[display]{\huge\bfseries}{\chaptername~\thechapter}{2em}{}
 \titleformat{\section}[hang]{\Large\bfseries}{\rlap{\thesection}}{2em}{}
 \titleformat{\subsection}[hang]{\large\bfseries}{\rlap{\thesubsection}}{3em}{}
 
 
+\usepackage{setspace}
+
 
 \begin{document}
 \frontmatter %numbering \roman
-
-
-{\Large
-%\includegraphics[width=5cm]{Figures/LOGO_MEDECINE.jpg}
-\vspace*{0.2cm}
+\thispagestyle{empty}
 
 \begin{center}
 
-\thispagestyle{empty}
+\includegraphics[width=6cm]{Figures/LOGO_MEDECINE.jpg}
+\vspace*{1.5cm}
 
-{\bf TH\`ESE DE DOCTORAT DE \\ l'UNIVERSIT\'E PIERRE ET MARIE CURIE}
+{\large{\bf  TH\`ESE DE DOCTORAT DE \\[.5em] SORBONNE UNIVERSITÉ }}
 
-\vspace*{0.5cm}
+\vspace*{1cm}
+{\large spécialité:  Épidémiologie} \\ 
 
-Spécialité \\ [2ex] 
-{\bf Épidémiologie}\ \\ 
 
-\vspace*{0.5cm}
+\vspace*{1cm}
+{\large École doctorale \guillemotleft Pierre Louis\guillemotright \, de santé publique}
 
-Ecole doctorale n$^\circ$393 
-
+\vspace*{.2cm}
 Épidémiologie et Sciences de l'Information Biomédicale
 
 \vspace*{1cm}
+{\large présentée par}
 
-
-Pr\'esent\'ee par \ \\
-
-
-\vspace*{0.5cm}
-
-
-{\Large {\bf Julien RIOU}}
+\vspace*{0.2cm}
+{\large {\bf M. Julien Riou}}
 
 \vspace*{1cm}
-Pour obtenir le grade de \ \\[1ex]
-{\bf DOCTEUR de l'UNIVERSIT\'E PIERRE ET MARIE CURIE} \ \\
+{\large pour obtenir le grade de}
 
-\vspace*{1cm}
+\vspace*{0.2cm}
+{\large{\bf Docteur de Sorbonne Université}} \\
+
+\vspace*{1.5cm}
+\doublespacing
+\fbox{
+  \parbox{\textwidth}{
+\centering
+   {\large {\bf Analyse comparative et prédictabilité des épidémies}} \\
+   {\large {\bf transmises par les moustiques du genre {\em Aedes}}}
+  }
+}
+\singlespacing
 
 \end{center}
 
-\flushleft{Sujet de la thèse :\ \\
-\ \\
-{\Large {\bf  Analyse comparative et prédictabilité des épidémies transmises par les moustiques du genre {\em Aedes}\\ }}
-  
-
 \vspace*{1.5cm} 
-\flushleft{soutenue le }\\[2ex]
-\flushleft{devant le jury composé de :  }\\[1ex]
-\flushleft{\begin{tabular}{r@{\ }ll}
-  & M. Pierre-Yves {\sc Boëlle} & Directeur de thèse\\
-  & M. Prénom {\sc Nom} & Rapporteur \\
-  & M. Prénom {\sc Nom} & Rapporteur  \\
-  & M. Prénom {\sc Nom} & Examinateur  \\
-  & M. Prénom {\sc Nom} & Examinateur  \\
-\end{tabular}}
+{\large soutenue le }
 
+\vspace*{1cm} 
+{\large devant le jury composé de : }
+
+\begin{center}
+{\large 
+\begin{tabular}{p{10cm} r}
+  M. Pierre-Yves Boëlle & Directeur de thèse\\
+  M. Prénom Nom & Rapporteur \\
+  M. Prénom Nom & Rapporteur  \\
+  M. Prénom Nom & Examinateur  \\
+  M. Prénom Nom & Examinateur  \\
+\end{tabular}
 }
+\end{center}
+
+
 \newpage
-
 \null\newpage
-
 
 \input{Preface.tex} 
 
 \tableofcontents
 
+\listoffigures
 
+\listoftables
 
 \mainmatter % numbering \arabic + reset \page counter
+\doublespacing
 
 \input{Intro.tex}
 
@@ -109,8 +118,9 @@ Pour obtenir le grade de \ \\[1ex]
 
 \input{Conclusion}
 
-
+\bibliography{biblio}
+\bibliographystyle{unsrt}
 
 \backmatter
-% bibliography
+
 \end{document}
