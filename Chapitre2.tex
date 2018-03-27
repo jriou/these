@@ -1,26 +1,25 @@
-\chapter{Modélisation des maladies vectorielles}
+\chapter{Aspects méthodologiques}
 \chaptermark{}
 
-
-Ayant considéré les émergences récentes de maladies transmises par les mêmes moustiques, en particulier les dernières épidémies de Chikungunya et de Zika
-questions de recherche
-Dans ce chapitre, nous passerons en revue les différents domaines concepts qui ont abouti à notre modèle
+L'existence de fortes concentrations de moustiques du genre {\em Aedes} à proximité de centres de population humaine dans les zones tropicales et tempérées exerce une pression de sélection favorisant l'émergence de maladies humaines transmises par ces vecteurs.
+Nous avons passé en revue au chapitre 1 les origines de cette situation et les conséquences déjà observées.
+Malgré de récents développements dans les stratégies de lutte antivectorielle, il est probable que de nouvelles émergences vont se produire, avec des conséquences imprévisibles sur la santé des populations.
+Au delà de l'étude individuelle des épidémies passées, qui reste un sujet majeur, l'observation plus générale des dynamiques épidémiques caractéristiques des maladies transmises par les moustiques du genre {\em Aedes} pourrait permettre de mieux anticiper et contrôler les émergences futures.
+Notre approche s'articule donc autour de la modélisation conjointe de plusieurs épidémies partageant le même mode de transmission.
+Nous nous sommes concentrés sur les épidémies successives de Chikungunya et de Zika qui ont touché les territoires de la Polynésie française et des Antilles françaises entre 2013 et 2016.
+Cette approche nous a conduit à emprunter des concepts venant de plusieurs champs de l'épidémiologie et des biostatistiques, que nous passerons en revue dans ce chapitre.
 
 \section{Les modèles de maladies vectorielles}
 
-Deux principales approches ont été proposées pour modéliser de façon mécaniste la transmission des maladies vectorielles dans les populations, qui peuvent se distinguer selon la façon d'intégrer l'action du vecteur. 
-Une première classe de modèles intègrent l'action du vecteur de façon explicite, considérant le cycle complet de transmission entre populations d'hôtes et populations de vecteurs. Ces modèles dérivent des modèles de type {\em Ross-Macdonald}, initialement développés pour étudier la transmission du paludisme.
-Une deuxième approche consiste à intégrer l'action du vecteur de façon implicite,considérant alors seulement la transmission entre hôtes. 
-Ce type d'approche ressemble à celles utilisées pour modéliser les épidémies transmises directement entre humains, par exemple par voie respiratoire pour la grippe. 
-Dans ce cas, le vecteur n'est considéré que comme le lien existant entre un cas infectieux et le cas secondaire dont il est à l'origine.
+Les modèles de maladies vectorielles trouvent leur origine dans les travaux de Ronald Ross sur le paludisme, 
+qui développa une approche mathématique incluant le cycle complet de transmission d'un pathogène entre populations d'hôtes et populations de vecteurs, et les relations entre ces entités. 
+Cette approche, étendue et formalisée par George Macdonald, est toujours très influente aujourd'hui, et constitue l'aboutissement d'une théorie plus générale des dynamiques épidémiques et du contrôle des maladies transmises par les moustiques qui se développe à partir de la fin du XIX\textsuperscript{ème} siècle.
 
+\subsection{Ross, Macdonald et le développement des modèles de transmission paludisme}
 
-\subsection{Les modèles de type Ross-Macdonald}
-
-Les modèles de type {\em Ross-Macdonald} ont été développé par George Macdonald en 1957 pour le programme de l'Organisation Mondiale de la Santé pour l'éradication du paludisme \cite{macdonald1957epidemiology}. 
-Cette approche, toujours très influente aujourd'hui, constitue l'aboutissement d'une théorie plus générale des dynamiques épidémiques et du contrôle des maladies transmises par les moustiques, qui se développe à partir de la fin du XIX\textsuperscript{ème} siècle \cite{smith2012ross}.
-En 1877, Patrick Manson isole le pathogène responsable de la filariose lymphatique dans des moustiques ayant piqué des malades en Chine, puis en 1880 Charles Laveran découvre le parasite du paludisme en Algérie.
-Enfin en 1897, Ronald Ross démontre formellement la transmission du paludisme par les anophèles en Inde, puis dès 1908 conçoit un premier modèle mathématique de transmission du paludisme \cite{ross1908report}.
+Suivant la révolution microbiologique du XIX\textsuperscript{ème} siècle, Patrick Manson isole en 1877 le pathogène responsable de la filariose lymphatique dans des moustiques ayant piqué des malades en Chine, mettant en lumière le rôle possible d'invertébrés en tant que vecteurs de maladies humaines. 
+A sa suite, Charles Laveran découvre le parasite du paludisme en Algérie, puis Ronald Ross démontre formellement la transmission du paludisme par les anophèles en Inde. 
+Dès 1908, Ross conçoit un premier modèle mathématique de transmission du paludisme \cite{ross1908report,smith2012ross}.
 Ce modèle initial sera par la suite réexprimé par Alfred James Lotka sous la forme de la suite récurrente reliant le nombre d'humains infectés au temps $t+1$, noté $I_{t+1}$, au nombre d'infectés au temps $t$ selon
 \begin{equation}
 I_{t+1} = \hat{V}\frac{I_t}{N}(N-I_t)-rI_t
@@ -32,11 +31,13 @@ Ce premier modèle a été par la suite reformulé en temps continu sous la form
 \frac{dZ}{dt} &= ac\frac{I_{t-v}}{N}(M-Z_{t-v})-gZ
 \end{align}
 
-La principale conclusion était qu'il existait un lien causal entre le rapport du nombre de moustiques sur le nombre d'humains $m$ et la prévalence du paludisme, et qu'il n'était pas nécessaire de tuer tous les moustiques pour arrêter la transmission mais qu'il existe une valeur minimale de $m$ nommée $m'$ en dessous de laquelle la transmission soutenue du paludisme n'est pas possible :
+Sa principale conclusion était qu'il existait un lien causal entre le rapport du nombre de moustiques sur le nombre d'humains $m$ et la prévalence du paludisme. 
+Ainsi, Ross suggère qu'il n'est pas nécessaire de tuer tous les moustiques pour contrôler la maladie, mais qu'il existe une valeur minimale de $m$ nommée $m'$ en dessous de laquelle la transmission soutenue du paludisme n'est plus possible :
 \begin{equation}
 m'>\frac{gr}{a^2bce^{-gv}}
 \end{equation}
 où l'on retrouve la probabilité qu'un moustique infecté survive assez longtemps pour devenir infectieux $e^{-gv}$.
+
 
 \begin{table}[t]
 \centering
@@ -70,9 +71,9 @@ $\rho$ &	Probabilité qu'un hôte infecté soit rapporté par le système de sur
 \end{tabular} 
 \end{table}
 
-Ross a largement contribué au développement de l'épidémiologique quantitative, notamment influençant directement William Kermack et Anderson Mackendrick qui publient en 1927 leur théorie mathématique des épidémies, qui mènera au modèle SIR \cite{kermack1927contributions}.
-Les travaux de Ross furent repris dans les années 1950 par George Macdonald dans le contexte du lancement du programme d'éradication globale du paludisme par l'OMS.
-Macdonald a amélioré certains aspects du deuxième modèle de Ross, mais a surtout porté des avancées  conceptuelles majeures qui ont largement influencé les champs de l'épidémiologie et de l'entomologie.
+Les travaux de Ross furent vite reconnus, et ont largement contribué au développement de l'épidémiologique quantitative, notamment influençant directement William Kermack et Anderson Mackendrick qui publient en 1927 leur théorie mathématique des épidémies, qui mènera au modèle SIR \cite{kermack1927contributions}.
+Ces recherches furent repris dans les années 1950 par George Macdonald dans le contexte du lancement du programme d'éradication globale du paludisme par l'OMS.
+Macdonald améliora certains aspects du deuxième modèle de Ross, mais amena surtout des avancées  conceptuelles majeures, faisant le lien entre plusieurs domaines scientifiques.
 Il emprunta notamment à Lotka la notion démographique de {\em taux de reproduction de base}, qu'il nomma d'abord $Z_0$, et qui deviendra $\mathcal{R}_0$ \cite{macdonald1952analysis}. 
 $\mathcal{R}_0$ est une mesure du nombre attendu de cas humains secondaires infectés par un seul cas index dans une population entièrement susceptible, qui dans le contexte du modèle proposé par Macdonald vaut
 \begin{equation}
@@ -83,25 +84,64 @@ Macdonald introduisit aussi des méthodes de mesure entomologique de la transmis
 \begin{equation}
 V = \frac{ma^2}{g}e^{-gv}
 \end{equation}
-Pendant de nombreuses années, le risque de paludisme dans une région donnée sera estimé suivant cette approche, par des mesures entomologiques de type comptage de larves et de moustiques infectieux.
+Pendant de nombreuses années, le risque de paludisme dans une région donnée sera évalué suivant cette approche, par des mesures entomologiques réalisées sur le terrain comme le comptage de larves et de moustiques infectieux.
 
-Par la suite, d'autres évolutions ont été apportées, permettant la prise en compte des vecteurs infectés mais non encore infectieux, de la saisonnalité ou encore de l'immunité acquise. 
-La théorie fut adaptée aux spécificités d'autres maladies que le paludisme, transmises par d'autres espèces de moustiques.
-Il n'existe ainsi pas une formulation canonique du modèle Ross-Macdonald mais plutôt un ensemble de modèles suivant parfois partiellement un certain nombre d'hypothèses simplificatrices \cite{smith2012ross} : 
+Les travaux de Macdonald n'ont pas abouti à une formulation fixe du modèle Ross-Macdonald mais plutôt un ensemble de modèles suivant un certain nombre d'hypothèses simplificatrices \cite{smith2012ross} : 
 \begin{itemize}
-\item le cycle de vie du pathogène a quatre étapes (transmission à un hôte susceptible, incubation chez l'hôte, transmission à un vecteur susceptible, incubation chez le vecteur);
-\item le moustique suit un cycle gonotrophique (l'oviposition faisant suite à un repas de sang);
-\item il n'y a qu'un seul type d'hôte et un seul type de vecteur;
+\item on considère un seul type de pathogène, un seul type d'hôte et un seul type de vecteur, dont les contacts sont pris en compte explicitement;
+\item on considère une zone géographique donnée, sans émigration ni immigration;
+\item la valeur des paramètres est constante au cours du temps, les durées ont une distribution exponentielle;
+\item le cycle aquatique du vecteur n'est pas pris en compte explicitement;
+\item la période d'incubation externe n'est pas prise en compte explicitement;
 \item la distribution des piqûres parmi les hôtes est homogène;
-\item les hôtes redeviennent susceptibles à l'infection après guérison;
-\item la valeur des paramètres est constante au cours du temps;
-\item la mortalité des moustiques est indépendante de l'âge (distribution exponentielle de la durée de vie).
+\item les populations sont mélangées homogènement;
+\item l'immunité acquise chez l'hôte n'est pas prise en compte;
+\item la coinfection ou la superinfection des hôtes n'est pas prise en compte;
 \end{itemize}
+Des adaptations ont été apportées par la suite, portant sur un ou plusieurs des points précédents, suivant l'évolution des besoins et des connaissances biologiques et entomologiques.
+Pourtant, la structure des modèles est restée très stable. 
+Une revue systématiques a ainsi rapporté que plus de la moitié des modèles de maladies vectorielles publiés entre 1970 et 2010 ne déviaient pratiquement pas de l'approche proposée par Macdonald \cite{reiner_systematic_2013}.
 
-Nous terminerons cette présentation des modèles de type Ross-Macdonald par la description détaillée d'un modèle  représentatif des approches plus modernes, construites autour de données de surveillance épidémiologique plutôt que de mesures entomologiques \cite{pandey2013comparing}. 
-Ce modèle, influencé à la fois par le modèle de Ross-Macdonald et les modèles de type SIR, est adapté à la modélisation des épidémies de dengue, et prend en compte l'existence d'une immunité acquise, contrairement au paludisme.
+C'est dans l'utilisation qui est faite des approches de modélisation que l'évolution a été plus visible, en lien avec les avancées opérées dans le domaine de la modélisation des maladies transmises directement d'hôte à hôte, ainsi que par le développement des systèmes de surveillance épidémiologique.
+Initialement, les modèles étaient surtout utilisés comme des outils théoriques, avec pour objectif de mieux comprendre la transmission et de cibler les mesures de prévention et de contrôle, ou bien pour l'estimation qualitative d'un risque d'épidémie en se basant sur des mesures entomologiques.
+L'abondance et la relative fiabilité des données d'incidence humaine, contrastant avec la difficulté des mesures entomologiques, ont entraîné une modification des pratiques, ayant pour objectifs l'estimation directe des dynamiques épidémiques, en particulier par la mesure du taux de reproduction de base $\mathcal{R}_0$, la quantification des facteurs influençant ces dynamiques, comme la température, et dans certains cas la prédiction de l'évolution future d'épidémies débutantes.
+
+\subsection{Extension aux maladies transmises par les moustiques du genre {\em Aedes}}
+
+A partir des années 1990, les théories attachées aux modèles de Ross-Macdonald furent progressivement appliquées à d'autres maladies que le paludisme, en particulier la dengue (Fig. \ref{fig:reiner_diseases}) \cite{reiner_systematic_2013}.
+
+
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=14cm]{Figures/reiner_diseases.PNG}
+	\caption{Evolution du nombre de modèles de maladies vectorielles publiés entre 1970 et 2010 selon la maladie (source : Reiner et al, 2013)}
+	\label{fig:reiner_diseases}
+\end{figure}
+
+
+
+\subsection{Modélisation implicite du vecteur}
+\label{sec:sir}
+
+%Deux principales approches ont été proposées pour modéliser de façon mécaniste la transmission des maladies vectorielles dans les populations, qui peuvent se distinguer selon la façon d'intégrer l'action du vecteur. 
+%Une première classe de modèles se caractérise par l'intégration de l'action du vecteur de façon explicite, considérant le cycle complet de transmission d'un pathogène entre populations d'hôtes et populations de vecteurs, et les relations entre ces entités. 
+%Ce type de méthode trouve son origine dans les modèles de type {\em Ross-Macdonald}, initialement développés pour étudier la transmission du paludisme.
+%Une deuxième approche consiste à intégrer l'action du vecteur de façon implicite, considérant alors seulement la transmission entre hôtes. 
+%Ce type de modèles ressemble à ceux développés pour étudier les maladies transmises directement entre humains, par exemple par voie respiratoire pour la grippe. 
+%Dans ce cas, le vecteur n'est considéré que comme un lien existant entre un cas infectieux et un cas secondaire dont il est à l'origine.
+
+
+
+Une autre classe de modèles de maladies vectorielles s'inspire directement des théories et modèles utilisées pour les pathogènes transmis directement.
+Ces modèles, construits autour des données d'incidence fournies par les systèmes de surveillance, se distinguent principalement par l'absence de modélisation explicite des populations de vecteurs, considérant alors seulement la transmission entre hôtes. 
+Considérant 
+
+
+Nous terminerons cette présentation des modèles de maladies vectorielles par la présentation d'une comparaison d'un modèle de type Ross-Macdonald et d'un modèle de type SIR \cite{pandey2013comparing}. 
+
+
 On retrouve donc trois compartiments humains, le nombre de susceptibles $S$, d'infectieux $I$ et d'immunisés $R$, et deux compartiments de moustiques, le nombre de susceptibles $X$ et le nombre d'infectieux $Z$ (les notations ont été modifiées pour correspondre à la table \ref{table:sign}). 
-Le modèle est gouverné par le système d'équations différentielles suivant :
+Le modèle VH est gouverné par le système d'équations différentielles suivant :
 
 \begin{align}
 \frac{dS}{dt} &= fN - mab\frac{Z}{M}S - fS \\ \nonumber
@@ -111,28 +151,16 @@ Le modèle est gouverné par le système d'équations différentielles suivant :
 \frac{dZ}{dt} &= ac\frac{I}{N}X - gZ
 \end{align}
 
-Ce modèle fait l'hypothèse que les moustiques restent infectieux jusqu'à leur décès, et qu'il n'existe pas de mortalité additionnelle due à l'infection chez les hôtes comme chez les vecteurs.
-Les données de surveillance mensuelle du nombre de cas de dengue en Thaïlande de janvier 1984 à mars 1985 (Fig. \ref{fig:pandey_figure_incidence}) sont utilisées pour l'estimation des paramètres par inférence Bayésienne, en utilisant des méthodes de Monte Carlo par chaîne de Markov (MCMC, cf. \ref{sec:infbay}).
+\noindent Ce modèle fait l'hypothèse que les moustiques restent infectieux jusqu'à leur décès, et qu'il n'existe pas de mortalité additionnelle due à l'infection chez les hôtes comme chez les vecteurs.
+Les données de surveillance mensuelle du nombre de cas de dengue en Thaïlande de janvier 1984 à mars 1985 (Fig. \ref{fig:pandey_figure_incidence}) sont utilisées pour l'estimation des paramètres par inférence Bayésienne, en utilisant des méthodes de Monte Carlo par chaîne de Markov (MCMC, cf. \S \ref{sec:infbay}).
 Pour ce faire, un compartiment est ajouté représentant le nombre cumulé de cas rapportés par le système de surveillance, grâce à l'introduction du paramètre $\rho$ :
 
-\begin{align}
-\frac{dO}{dt} &= \rho mab\frac{Z}{M}S
-\end{align}
-
-Les auteurs font l'hypothèse que le taux de décès égale le taux de naissances dans les deux populations, et fixent la mortalité humaine à $f=1/69$ (correspondant à une durée de vie moyenne de 69 ans dans ce pays).
-Les paramètres estimés sont donc : le taux de mortalité chez les vecteurs $g$, deux paramètres composites mesurant la transmission chez les hôtes $\beta_H=mab$ et chez les vecteurs $\beta_V=ac$ (cela vient du fait que les paramètres $a$, $b$, $c$ et $m$ n'apparaissent que multipliés entre eux et ne sont donc pas identifiables séparément), le taux de guérison des hôtes $r$, et la proportion des cas infectés rapportés par le système de surveillance $\rho$.
-De plus, le nombre initial d'hôtes résistants $R(0)$ et de vecteurs infectés $X(0)$ doivent aussi être estimés.
+%\begin{align}
+%\frac{dO}{dt} = \rho mab\frac{Z}{M}S
+%\end{align}
 
 
-
-
-L'analyse de ce système par la méthode de la matrice de génération suivante montre que 
-\begin{equation}
-\mathcal{R}_0 = \frac{ma^2bc}{g(f+r)}
-\end{equation}
-
-
-\begin{figure}[h]
+\begin{figure}[t]
 	\centering
 	\includegraphics[width=8cm]{Figures/pandey_fig_incidence.PNG}
 	\caption{Incidence mensuelle de dengue en Thaïlande entre janvier 1984 et mars 1985 (source : Pandey et al, 2013)}
@@ -140,16 +168,44 @@ L'analyse de ce système par la méthode de la matrice de génération suivante 
 \end{figure}
 
 
+Les auteurs font l'hypothèse que le taux de décès est égal au taux de naissances dans les deux populations, et fixent la mortalité humaine à $f=1/69$ (correspondant à une durée de vie moyenne de 69 ans dans ce pays).
+Les paramètres estimés sont donc : le taux de mortalité chez les vecteurs $g$, deux paramètres composites mesurant la transmission des vecteurs vers les hôtes ($\beta_H=mab$) et des hôtes vers les vecteurs ($\beta_V=ac$) puisque les paramètres $a$, $b$, $c$ et $m$ n'apparaissent que multipliés entre eux et ne sont donc pas identifiables séparément, le taux de guérison des hôtes $r$, et la proportion des cas infectés rapportés par le système de surveillance $\rho$.
+De plus, on estime la proportion initiale d'humains résistants $R(0)/N$ et de moustiques infectieux $Z(0)/M$.
+On note que $\mathcal{R}_0$ n'est pas un paramètre, mais plutôt une fonction de paramètres retrouvée grâce à l'analyse du système par la méthode de la matrice de génération suivante :
+\begin{equation}
+\mathcal{R}_0 = \frac{ma^2bc}{g(f+r)}
+\end{equation}
+Les résultats du modèle VH sont présentés dans la table \ref{table:pandeyres}, en comparaison avec les résultats issus d'une approche implicite (cf. \S \ref{sec:sir}).
+
+\begin{table}[h]
+\centering
+\caption{Résultats des modèles vecteurs-hôtes (VH) et SIR dans Pandey et al, 2013. \vspace{.5em}}
+\label{table:pandeyres}
+\begin{tabular}{lllll}
+\hline 
+Paramètre & Unité & Distribution {\em a priori} &\multicolumn{2}{c}{Distribution postérieure}\\ 
+&&& Modèle VH & Modèle SIR \\
+\hline
+$\beta_H$ 	& j$^{-1}$ & $\mathcal{U}(0,1)$ 		& 0.05 (0.01; 0.22) & -- \\
+$\beta_V$ 	& j$^{-1}$ & $\mathcal{U}(0.1,2)$ 		& 0.49 (0.13; 1.68) & -- \\
+$\beta$ 	& j$^{-1}$ & $\mathcal{U}(0,10)$ 		& 0.49 (0.28; 0.94) & 0.32 (0.19; 0.58) \\
+$r$ 		& j$^{-1}$ & $\mathcal{U}(0.1,0.6)$ 		& 0.25 (0.15; 0.44) & 0.27 (0.13; 0.53)\\
+$\rho$ 		& j$^{-1}$ & $\mathcal{U}(0,0.1)$ 		& 0.002 (0.001; 0.009) & 0.006 (0.002; 0.035) \\
+$g$ 		& j$^{-1}$ & $\mathcal{U}(0.01,0.1)$ 		& 0.05 (0.04; 0.08) & -- \\
+$R(0)/N$ 	& \% & $\mathcal{U}(0,1)$ 		& 0.2 (0; 13) & 0.2 (0; 14)\\
+$Z(0)/M$ 	& \% & $\mathcal{U}(0,1)$ 		& 0.05 (0; 0.6) & -- \\
+$\mathcal{R}_0$ & -- & --		 		& 1.97 (1.36; 3.21) & 1.20 (1.05; 1.52)\\
+\hline 
+\end{tabular} 
+\end{table}
 
 
-\subsection{Le modèle SIR}
-
-
-\subsection{Comparaison des deux}
 
 
 
-\section{Discrétisation et modèles multi-niveaux}
+
+
+\section{Discrétisation}
 
 \subsection{Le modèle TSIR}
 
@@ -159,7 +215,7 @@ On s'intéresse principalement aux dates d'incidence.
 
 \subsection{Facteurs influençant le niveau de transmission}
 
-\subsection{Approche multi-niveaux}
+\section{Approche multi-niveaux}
 
 \subsection{Différences avec les approches classiques}
 
