@@ -64,26 +64,26 @@ Ce système de trois équations différentielles constitue la base des modèles 
 \end{itemize}
 
 En plus de compléter les travaux de Ross, Macdonald apporta des avancées  conceptuelles majeures, faisant le lien entre plusieurs domaines scientifiques.
-Il emprunta notamment à Lotka la notion démographique de {\em taux de reproduction de base}, qu'il nomma d'abord $Z_0$, et qui deviendra $\mathcal{R}_0$, dont la formule peut être dérivée analytiquement du modèle présenté ci-dessus :
+Il emprunta notamment à Lotka la notion démographique de {\em taux de reproduction de base}, qu'il nomma d'abord $Z_0$, et qui deviendra $\mathcal{R}_0$. $\mathcal{R}_0$ est le nombre attendu de cas humains secondaires infectés par un seul cas index, ce dans une population entièrement susceptible.
+Il représente donc une mesure de l'intensité de la transmission qui peut être dérivée analytiquement du modèle présenté ci-dessus :
 \begin{equation}
 \mathcal{R}_0 = \frac{ma^2bc}{gr}e^{-vg}.
 \end{equation}
-$\mathcal{R}_0$ est une mesure du nombre attendu de cas humains secondaires infectés par un seul cas index dans une population entièrement susceptible, et représente donc une mesure de l'intensité de la transmission.
-Sa formule peut être interprétée intuitivement : la transmission du paludisme est favorisée par une densité élevée de moustiques ($m$ élevé) qui piquent fréquemment ($a$ élevé) et une grande susceptibilité à l'infection des vecteurs ($c$ élevé) et des hôtes ($b$ élevé).
+Cette formule peut être interprétée intuitivement : la transmission du paludisme est favorisée par une densité élevée de moustiques ($m$ élevé) qui piquent fréquemment ($a$ élevé) et une grande susceptibilité à l'infection des vecteurs ($c$ élevé) et des hôtes ($b$ élevé).
 Au contraire, la transmission est affaiblie par une guérison plus rapide des hôtes ($r$ élevé) et une plus haute mortalité des vecteurs ($g$ élevé).
 Puisque deux piqûres sont nécessaires pour compléter le cycle de transmission du parasite, le terme $a$ intervient élevé au carré, et constitue donc une cible privilégiée d'intervention : ainsi, diviser la densité de moustiques $m$ par deux, par exemple par la dispersion de larvicides, réduit théoriquement $\mathcal{R}_0$ d'un facteur deux, mais diviser le nombre de piqûres par deux, par exemple au moyen de moustiquaires, réduit $\mathcal{R}_0$ d'un facteur quatre.
 
-L'analyse des points d'équilibre du système montre la relation entre $\mathcal{R}_0$ et la prévalence à l'équilibre chez les hôtes :
+L'analyse du système montre qu'il existe deux points d'équilibre : un premier où la maladie est absente, et un deuxième où la maladie reste endémique. La relation entre $\mathcal{R}_0$ et la prévalence à l'équilibre chez les hôtes $\hat{w}$ est :
 \begin{equation}
 \label{eq:equi1}
 \hat{w} = \frac{\mathcal{R}_0-1}{\mathcal{R}_0-\frac{a}{g}};
 \end{equation}
-et chez les vecteurs :
+et entre $\mathcal{R}_0$ et la prévalence à l'équilibre chez les vecteurs $\hat{z}$ est :
 \begin{equation}
 \label{eq:equi2}
 \hat{z} = \frac{\mathcal{R}_0-1}{\mathcal{R}_0}\frac{\frac{a}{g}}{1+\frac{a}{g}}e^{-vg}.
 \end{equation}
-Ces valeurs sont positives seulement si $\mathcal{R}_0>1$, ce qui correspond à l'affirmation de Ross selon laquelle il existe une limite en dessous de laquelle la transmission soutenue du paludisme n'est plus possible (Fig. \ref{fig:equilibrium}).
+Ces valeurs sont positives seulement si $\mathcal{R}_0>1$, ce qui correspond au point d'équilibre endémique. Si $\mathcal{R}_0<1$ au contraire, le niveau de transmission de la maladie n'est pas suffisante pour assurer sa perpétuation, ce qui correspond au point d'équilibre sans maladie. Cela renvoie à l'affirmation de Ross selon laquelle il existe une limite en dessous de laquelle la transmission soutenue du paludisme n'est plus possible (Fig. \ref{fig:equilibrium}).
 
 \begin{figure}[t]
 	\centering
@@ -114,13 +114,13 @@ L'abondance et la relative fiabilité des données d'incidence ou de séropréva
 \end{figure}
 
 
-\subsection{Extension aux maladies transmises par les moustiques du genre {\em Aedes}}
+\subsection{Extension du modèle de Ross-Macdonald aux maladies transmises par les moustiques du genre {\em Aedes}}
 
 Les théories attachées aux modèles de Ross-Macdonald furent progressivement appliquées à d'autres maladies que le paludisme (Fig. \ref{fig:reiner_diseases}) \cite{reiner_systematic_2013}.
 Sur le sujet des maladies transmises par les moustiques du genre {\em Aedes}, une première tentative d'adaptation du modèle de Ross-Macdonald à la transmission d'un seul sérotype de dengue fut proposée par Bailey \cite{bailey1975mathematical,andraud2012dynamic}.
-La formulation du modèle reste proche de celle proposée par Macdonald, la principale adaptation consistant en la prise en compte d'une immunité acquise à long terme chez l'hôte après infection, qui n'existe pas pour le paludisme. 
+La formulation de ce modèle reste proche, la principale adaptation consistant en la prise en compte d'une immunité acquise à long terme chez l'hôte après infection, qui n'existe pas pour le paludisme. 
 On observe aussi des différences liées à l'influence des modèles de type SIR développés pour les maladies transmises directement d'hôte à hôte.
-Ainsi on préfère considérer le nombre d'hôtes ou de vecteurs dans chaque compartiment plutôt que la proportion : la population d'hôtes de taille $N$ est divisée en trois compartiments (nombre de susceptibles $S$, d'infectieux $I$ et d'immunisés ou résistants $R$) et la population de vecteurs de taille $M$ est divisée en deux compartiments (nombre de susceptibles $X$ et d'infectieux $Z$).
+On considère le nombre d'hôtes ou de vecteurs dans chaque compartiment plutôt que la proportion : la population d'hôtes de taille $N$ est divisée en trois compartiments (nombre de susceptibles $S$, d'infectieux $I$ et d'immunisés ou résistants $R$) et la population de vecteurs de taille $M$ est divisée en deux compartiments (nombre de susceptibles $X$ et d'infectieux $Z$).
 De ce fait, plutôt que le taux d'augmentation de la proportion d'hôtes infectés $mabz(1-w)$ apparaissant dans l'équation \ref{eq:eqRM1}, on considère le taux d'augmentation du nombre d'hôtes infectés, qui peut être reformulé selon :
 \begin{equation}
 mabz(1-w)N = \frac{M}{N}ab\frac{Z}{M}(1-\frac{I}{N})N = ab\frac{SZ}{N}.
@@ -128,6 +128,7 @@ mabz(1-w)N = \frac{M}{N}ab\frac{Z}{M}(1-\frac{I}{N})N = ab\frac{SZ}{N}.
 On peut remarquer que cette formule n'est pas sans rappeler le terme $\beta\frac{SI}{N}$ intervenant dans le modèle SIR.
 Le modèle est décrit par le système suivant :
 \begin{align}
+\label{eq:bailey}
 \frac{dS}{dt} &= fN - ab\frac{SZ}{N} - fS \\ \nonumber
 \frac{dI}{dt} &= ab\frac{SZ}{N} - rI - fI \\ \nonumber
 \frac{dR}{dt} &= rI - fR \\  \nonumber
@@ -136,27 +137,109 @@ Le modèle est décrit par le système suivant :
 \end{align}
 où $f$ désigne à la fois le taux de mortalité et de natalité des hôtes, et $A$ le taux (constant) de recrutement de nouveaux moustiques adultes.
 Les autres symboles correspondent à ceux utilisés dans le premier modèle : $a$ est le nombre de piqûres par moustique et par unité de temps, $b$ la probabilité que la piqûre de moustique infectieux résulte en une infection chez l'homme, $c$  la probabilité que la piqûre d'un humain infectieux résulte en une infection chez le moustique, $r$ est le taux de guérison chez l'humain et $g$ le taux de mortalité chez le moustique.
+Ce modèle fut utilisé pour étudier l'efficacité des pulvérisations d'insecticides en \guillemotleft ultra-bas volume\guillemotright à l'aide de simulations informatiques. 
 
-Ce modèle fut utilisé pour étudier l'efficacité des pulvérisations d'insecticides en \guillemotleft ultra-bas volume\guillemotright à l'aide de simulations.
-Il a été à la base d'un grand nombre de modèles de maladies transmises par les moustiques du genre {\em Aedes}.
-Pour le Chikungunya, \cite{yakob_mathematical_2013}
+Le modèle de Bailey a à son tour été la base d'un certain nombre de modèles de transmission de la dengue, et d'autres maladies transmises par les moustiques du genre {\em Aedes}, dont le chikungunya et le Zika qui nous intéressent ici.
+Concernant le chikungunya, les premiers travaux de modélisation inspirés de Bailey ont été publiés à la suite à l'épidémie en deux vagues de la Réunion en 2005 et 2006.
+Bacaër (2007) propose une analyse de l'épidémie de la Réunion en utilisant un modèle proche de celui de Bailey, apportant deux principales adaptations : prise en compte des périodes d'incubation extrinsèque et intrinsèques, et introduction d'un cycle saisonnal du nombre total de vecteurs par une fonction sinusoïdale \cite{bacaer2007approximation}. 
+Il obtient une estimation de $\mathcal{R}_0$ de 3.4.
+%Le modèle proposé par Nicolas Bacaër en 2007 est symptomatique d'une approche moderne basée sur les modèles de type Ross-Macdonald, articulée non plus autour de mesures entomologiques (pratiquement inexistantes à la Réunion), mais plutôt basée sur des données de surveillance en population \cite{bacaer2007approximation}.
+%Ainsi, la distinction entre le nombre de piqûres par vecteur ($a$) et la probabilité qu'une piqûre résulte en une infection chez l'homme ($b$) ou le vecteur ($c$) disparaît au profit d'un seul paramètre représentant la transmission d'hôte à vecteur et de vecteur à hôte $\beta=ab=ac$.
+%Deux principales modifications sont apportées au modèle proposé par Bailey, ajoutant des compartiments pour les hôtes et les vecteurs infectés mais non-encore infectieux (nommés respectivement $E$ et $Y$, permettant la prise en compte des durées d'incubation) et considérant les variations cycliques de la population totale de vecteurs $M$.
+%Au contraire, on ignore les variations de la population d'hôtes $N$.
+%Le modèle est décrit par le système suivant (les notations ont été modifiées pour correspondre aux modèles précédents) :
+%\begin{align}
+%\label{eq:bailey}
+%\frac{dS}{dt} &= - \beta\frac{S(t)Z(t)}{N} \\ \nonumber
+%\frac{dE}{dt} &= \beta\frac{S(t)Z(t)}{N} - rE(t) \\ \nonumber
+%\frac{dI}{dt} &= rE(t) - uI(t) \\ \nonumber
+%\frac{dR}{dt} &= uI(t) \\  \nonumber
+%\frac{dX}{dt} &= A(t) - \beta\frac{X(t)I(t)}{N} - gX(t) \\ \nonumber
+%\frac{dY}{dt} &= \beta\frac{X(t)I(t)}{N} - (g+v)Y(t) \\ \nonumber
+%\frac{dZ}{dt} &= vY(t) - gZ(t)
+%\end{align}
+%où $1/u$ et $1/v$ représentent respectivement les durées d'incubation chez l'hôte (intrinsèque) et chez le vecteur (extrinsèque).
+%Le nombre de nouveaux vecteurs $A(t)$ est calculé à partir de $M(t)$, qui doit satisfaire à la relation $\frac{dM}{dt}=A(t)-gM(t)$.
+%De plus, $M(t)$ suit la fonction trigonométrique suivante :
+%\begin{equation}
+%\label{eq:trigoM}
+%M(t) = M_0 (1+\epsilon \cos (\omega t-\phi)).
+%\end{equation}
+%Les paramètreA partir de 2007, plusieurs travaux utilisent des modèles de cette forme pour tenter de comprendre les dynamiques épidémiques du Chikungunya, qui cause une épidémie à la Réunion entre 2005 et 2006 \cite{bacaer2007approximation,dumont2008temporal,yakob_mathematical_2013}, ainsi qu'en Italie en 2007 \cite{poletti2011transmissions $\omega$ et $\phi$ sont choisis de manière à obtenir une périodicité annuelle et un maximum en février pour un minimum en juillet, tandis que $M_0$ et $\epsilon$ font partie des paramètres estimés.
+Dumont et al (2008) utilise un modèle différent, prenant en compte le stade aquatique du vecteur, introduisant ainsi la notion de {\em capacité porteuse}, c'est à dire la taille maximale de la population de vecteurs pouvant être supportée par le milieu \cite{dumont2008temporal}.
+Cette approche aboutit à des estimations de $\mathcal{R}_0$ dans différentes villes de la Réunion variant entre  0.89 et 2.12.
+Toutefois, ces deux articles se concentrent principalement sur des considérations théoriques générales, explorant les caractéristiques des modèles choisis, et les estimations de $\mathcal{R}_0$ fournies sont très dépendantes des valeurs choisies pour les différents paramètres. 
 
-En particulier, des modèles similaires ont été utilisés lors de l'épidémie de Chikungunya à la Réunion en 2007, et lors des épidémies de Zika
+D'autres travaux plus empiriques, utilisant des modèles similaires, se sont attachés un peu plus tard à analyser plus les dynamiques épidémiques du chikungunya dans un contexte spécifique.
+Poletti et al (2011) analyse l'épidémie italienne à l'aide d'un modèle suivant la même structure, incluant quatre stades de développement du moustique (\oe uf, larve, pupe et adulte) ainsi que l'effet de la température sur chaque étape de maturation, et aussi la possibilité pour un humain d'être infecté mais asymptomatique \cite{poletti2011transmission}.
+Cette fois, le modèle est ajusté aux données d'incidence non pas par le choix de valeurs plausibles pour différents paramètres, mais par la minimisation d'une fonction de distance entre données observées et données simulées, faisant intervenir le taux de déclaration des cas symptomatiques.
+Il s'agit donc d'un modèle plus complexe, qui a pour objectif premier l'{\em inférence} des dynamiques d'une épidémie spécifiques à partir de données de surveillance humaine en l'absence de mesures entomologiques, c'est à dire l'estimation des valeurs de paramètres inconnus et de leur incertitude.
+Cette approche permet l'estimation du nombre de piqûres par moustique et par unité de temps (noté $a$ dans les modèles précédents) selon différentes hypothèses concernant le nombre de sites de croissance disponibles pour les larves $B$ (qui influence le nombre de moustiques femelles adultes par humain $m$), seul paramètre complètement inconnu puisque la littérature fournit des fourchettes de valeurs pour les autres paramètres:  le taux de mortalité des vecteurs adultes $g(T)$ (dépendant de la température $T$), les probabilités d'infection après piqûre dans les deux sens ($b$ et $c$), la période d'incubation externe $v$ et le taux de guérison $r$. 
+Une valeur de  $\mathcal{R}_0$ peut alors être calculée selon la formule suivante :
+\begin{equation}
+\mathcal{R}_0 = a^2 m \frac{bc}{rg(T)} \frac{v}{v+g(T)},
+\end{equation}
+obtenue à partir du système d'équations différentielles par la méthode de la matrice de génération suivante \cite{diekmann2009construction}.
+Quelque soit la valeur de $B$ choisie (entre 50 et 200 sites de croissance larvaire par hectare), l'estimation de $a$ s'équilibre et fait que l'estimation moyenne de $\mathcal{R}_0$ est proche de 3.3 (intervalle de confiance à 95\%: 1.8-6).
+Enfin, Yakob et al (2011) s'intéresse à l'épidémie de la Réunion avec un modèle similaire, qui considère explicitement la maturation des moustiques et différencie les cas asymptomatiques et symptomatiques, ainsi que la probabilité et la durée avec laquelle un cas symptomatique est identifié et notifié, ce qui correspond directement aux données d'incidence disponibles \cite{yakob_mathematical_2013}. 
+Il s'agit ainsi véritablement d'un modèle {\em génératif}, et permet l'ajustement du modèle selon la méthode des moindres carrés.
+L'estimation de $\mathcal{R}_0$ obtenue est de 4.1.
+
+Concernant le Zika, plusieurs travaux de modélisation utilisant un modèle proche de celui Bailey ont été publiés à la suite de la première épidémie de ce pathogène sur l'île de Yap en 2007 \cite{funk2016comparative}, puis de l'extension du virus vers la Polynésie française à partir de 2013 \cite{kucharski_transmission_2016,Champagne064949}, puis vers l'Amérique centrale à partir de 2015 \cite{zhang_spread_2017,alex_perkins_model-based_2016,gao2016prevention}.
+En guise d'exemple, le premier modèle proposé par Champagne et al (2016) est décrit par le système suivant \cite{Champagne064949} :
+\begin{align}
+\frac{dS}{dt} &= -\beta_Hv_IS \\ \nonumber
+\frac{dE}{dt} &= \beta_HzS - uE \\ \nonumber
+\frac{dI}{dt} &= uE - rI \\ \nonumber
+\frac{dR}{dt} &= rI \\  \nonumber
+\frac{dx}{dt} &= g - \frac{\beta_VI}{N}x - gx \\ \nonumber
+\frac{dy}{dt} &= \frac{\beta_VI}{N}x - v y - gy \\ \nonumber
+\frac{dz}{dt} &= v y - gz.
+\end{align}
+Les principales différences avec le modèle de Bailey sont : (1) la population humaine est considérée comme stable (disparition de la mortalité et de la natalité); (2) les durées d'incubation intrinsèques ($u$) et extrinsèques ($v$) sont prises en compte grâce à l'introduction de deux compartiments ($E$ pour le nombre d'hôtes exposés et non-encore infectieux, $y$ pour la proportion de vecteurs exposés et non-encore infectieux); (3) on considère les proportions de vecteurs dans chaque compartiment $x$, $y$ et $z$ (pour susceptible, exposés et infectieux, respectivement); et (4) on ne s'intéresse pas à séparément au nombre de piqûres ($a$) et à la probabilité qu'une piqûre résulte en une infection ($b$ ou $c$ selon le sens), mais ces termes sont regroupés sous $\beta_H = ab$ et $\beta_V = ac$.
+Conformément aux approches modernes, ce modèle est ajusté aux données d'incidence de ZIKV obtenues dans les îles de Yap, Mo'orea, Tahiti et Nouvelle-Calédonie selon une méthode d'inférence (dans ce cas un algorithme de {\em particle Monte-Carlo Markow Chain}, PMCMC).
+
+%Kucharski et al (2016)
+%kucharski_transmission_2016
+%
+%Champagne064949
+%
+%funk2016comparative
+%
+%zhang_spread_2017
+%
+%alex_perkins_model-based_2016
+%
+%gao2016prevention
 
 
 
 
-
-
-\subsection{Approches alternatives aux modèles de type Ross-Macdonald}
+\subsection{Un autre classe de modèles mécanistes: les modèles à vecteurs implicites}
 \label{sec:sir}
 
-\subsubsection{Modèles mécanistes}
+% Wiratsudakul
+%Nevertheless, there were also many other scientists working on malaria
+%transmission dynamics For instance, Kermack and McKendrick incorporated the law of
+%mass action into the Ross model and proposed new and modern compartmental models
+%(Kermack & McKendrick, 1927; Kermack & McKendrick, 1932; Kermack & McKendrick,
+%1933)thatlaterbecamethemostwidelyusedbasicstructuresininfectiousdiseasemodeling.
+
+
+
 
 Une autre classe de modèles de maladies vectorielles s'inspire directement des théories et modèles utilisées pour les pathogènes transmis directement.
 Ces modèles, construits autour des données d'incidence fournies par les systèmes de surveillance, se distinguent principalement par l'absence de modélisation explicite des populations de vecteurs, considérant alors seulement la transmission entre hôtes.
 
-\subsubsection{Modèles non-mécanistes}
+cauchemez2006real
+
+perkins drivers
+
+roche2017drivers
+
+
+
+\subsection{Modèles non-mécanistes}
 
 Exponential growth (Wallinga J, Lipsitch M. How generation intervals shape the
 relationship between growth rates and reproductive numbers.
@@ -274,6 +357,26 @@ Récupérer le temps de génération, essayer de récupérer les paramètres ave
 
 \section{Inférence Bayésienne et méthodes de type MCMC}
 \label{sec:infbay}
+
+% Remi Daviet
+%The key problem with traditional MCMC simulators using Metropolis-Hastings
+%or Gibbs Sampling methods is that they do not behave necessarily well under
+%multimodality, concentrated mass or complex shapes. The Markov Chain used
+%to simulate the distribution can get trapped in one of the modes if it is not close
+%enough to the other modes and there is no mass between them. When facing
+%VOL. - NO. - INFERENCE WITH HSMC SIMULATORS 3
+%complex concentrated shapes, these simulators are not performing well exploring
+%the space of interest due to a high level of rejections when trying to move away
+%from the current point in the chain. Some specific simulators have shown interest-
+%ing properties concerning these problems. The family of SMC simulators solves
+%the problem of multimodality by not having a unique Markov Chain exploring
+%the parameter space [Durham and Geweke, 2013]. The sequential approach of
+%the SMC also partly solves the problem of concentrated mass by allowing the
+%target function to progressively converge toward its final form [Chopin, 2002].
+%The MCMC simulators using Hamiltonian dynamics, sometimes refereed to as
+%Hamiltonian Monte Carlo (HMC) simulators, have shown to be very effective in
+%exploring the parameter space when the target function has a complex elongated
+%shape or isolated concentrated mass.
 
 \subsection{Mieux prendre en compte l'incertitude}
 
