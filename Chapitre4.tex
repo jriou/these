@@ -1,19 +1,86 @@
-\chapter{Utiliser les ressemblances entre les maladies transmises par {\em Aedes} pour améliorer les outils de prédiction épidémique}
-\chaptermark{Prédire}
+\chapter{Épidémiologie prédictive}
+\chaptermark{}
 
-\section{Guider les interventions de prévention et de contrôle en situation d'épidémie émergente}
+Nous avons souligné dans le premier chapitre l'importance des maladies transmises par les moustiques du genre {\em Aedes} pour la santé globale, et la très probable persistance de ce problème dans le futur.
+La répartition actuelle des moustiques {\em Ae. aegypti} et {\em Ae. albopictus} est même susceptible de s'étendre avec les changements climatiques en cours.
+Un des scénarios plausibles à moyen terme consiste en l'émergence explosive dans les populations humaines entièrement susceptibles d'un virus connu, mais à l'heure actuelle limité à un cycle enzootique dans une zone géographique restreinte, suivant les exemples récents du chikungunya et du Zika.
+Nous avons présenté une liste non-exhaustive de virus répondant à ces critères au paragraphe \ref{sec:emerg}.
 
-\subsection{Approches classiques en prédiction}
+Lorsqu'une émergence survient, l'évaluation épidémiologique empirique en temps réel est utile pour aider les autorités de santé publique dans leur prise de décision.
+Se basant généralement sur des modèles mathématiques utilisant les données d'incidence disponibles, cette évaluation consiste en l'estimation de paramètres comme le nombre de reproduction de base, et présente parfois des prédictions concernant par exemple le nombre total de cas attendus durant la totalité de l'épidémie ou la date du pic d'incidence.
+Toutefois, ce type de travail se heurte souvent à une contradiction : pour être utile, il doit survenir tôt dans l'épidémie, afin d'être en mesure de guider efficacement la mise en place de mesures de prévention et de contrôle.
+Pour autant, plus on se place tôt dans une épidémie, plus les données disponibles sont rares, et donc plus l'incertitude sur les estimations et les prédictions sont grandes.
+En particulier, il a été montré qu'avant que le pic d'incidence soit observé, les prédictions sont limitées par la difficulté à estimer le taux de signalement \cite{heesterbeek2015modeling}.
+Nous proposons ici une approche originale pour limiter cette incertitude, basée sur les informations disponibles sur des épidémies antérieures et similaires à l'épidémie d'intérêt.
 
-\subsection{Récents développements : les challenges}
+\section{Présentation de l'étude}
 
-\section{Améliorer les prédictions à la phase précoce d'une épidémie de Zika grâce aux données historiques sur la transmission du Chikungunya}
+Notre travail comparant les épidémies successives de chikungunya et de Zika, présenté au chapitre 3, a permis de quantifier les similarités et les différences entre les dynamiques épidémiques de ces maladies quand elles circulent dans un lieu donné.
+Suivant cette logique, l'information concernant la dynamique d'une maladie dans un lieu donné pourrait donc être utilisée pour l'autre.
+Dans ce travail, nous présentons une application de cette idée aux épidémies de Zika aux Antilles françaises, les dernières chronologiquement parmi les données disponibles utilisées au chapitre précédent et présentées dans la figure \ref{fig:profiles}.
+En produisant rétrospectivement des prédictions à différents stades de ces épidémies, nous mesurons les avantages apportés en termes de fiabilité de prédiction par l'utilisation d'informations existantes à ce moment là sur les épidémies antérieures de chikungunya dans les mêmes territoires, ainsi que sur les épidémies successives de chikungunya et de Zika survenues en Polynésie française.
 
-\subsection{Résumé de l'article en français}
+\subsection{Objectifs et stratégie d'analyse}
 
-\subsection{Article : Riou, Poletto, Boëlle, Improving early epidemiological assessment of emerging {\em Aedes}-transmitted epidemics using historical data}
-\includepdf[pages={1}]{Articles/Predictionv12.pdf}
-%\includepdf[pages={1-17}]{Articles/Predictionv12.pdf}
+Considérons les données disponibles sur l'incidence observée les épidémies de Zika en Guadeloupe, en Martinique et à Saint-Martin de décembre 2015 à mars 2017 (jeu de données $\mathcal{D}1$, Fig. \ref{fig:preddata}).
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=15.5cm]{Figures/preddata.pdf}
+	\caption{Incidence hebdomadaire lors des épidémies de Zika dans trois îles des Antilles françaises entre 2015 et 2017. Les lettres $S$ et $E$ désignent le début et la fin de la période de circulation autochtone intense (selon les définitions locales), et la lettre $P$ désigne la date du pic d'incidence (sources : {\em CIRE Antille-Guyane}).}
+	\label{fig:preddata}
+\end{figure}
+Pour chaque date $K$ dans cet intervalle et dans chaque île séparément, un modèle de type TSIR, proche de celui adapté à une épidémie dans une île présenté au chapitre \ref{sec:tsir}, est ajusté aux données d'incidence disponibles {\em jusqu'à cette date}.
+On obtient les distributions postérieures des paramètres du modèle : le paramètre de transmission $\beta_Z$ (ou de façon équivalente dans ce cas, $\mathcal{R}_{0,Z}$, $Z$ pour Zika), le paramètre de signalement $\rho_Z$ et le paramètre de surdispersion $\phi_Z$.
+Les distributions a priori attribuées à ces paramètres sont non-informatives, ce qui implique que les estimations obtenues ne dépendent que des données d'incidence jusqu'à la date $K$. 
+A partir de ces distributions postérieures, on simule le reste de l'épidémie de façon stochastique, obtenant des prédictions de l'incidence hebdomadaire de la semaine $K$ à la semaine $K+104$, que l'on peut ensuite confronter avec les vraies observations.
+La qualité d'une prédiction est mesurée grâce à deux composants : la {\em précision} (la distance entre la prédiction moyenne et l'observation) et l'{\em acuité} (l'incertitude sur la prédiction).
+Ces prédictions d'incidence hebdomadaire pouvaient aussi être transformées en d'autres indicateurs plus parlants et directement comparable avec les données observées durant l'épidémie, comme la taille finale de l'épidémie, l'incidence maximale attendue, la date du pic d'incidence ou la date de la fin de la période de circulation autochtone intense.
+
+L'objectif est de comparer la qualité de ces prédictions à celle obtenue à la même date $K$ en utilisant en plus l'information issue des épidémies du passé dont les données sont disponibles.
+Cette information est obtenue en analysant les épidémies passées avec un modèle hiérarchique, et introduite dans les modèle de prédiction en modifiant les distributions a priori des paramètres $\mathcal{R}_{0,Z}$ et $\rho_Z$.
+Les distributions a priori sont construites de la manière suivante :
+\begin{itemize}
+\item les données concernant les épidémies de chikungunya dans les mêmes îles (jeu de données $\mathcal{D}2$), deux ans auparavant, permettent d'obtenir les distributions postérieures de $\mathcal{R}_{0,C}|\mathcal{D}2$ et $\rho_C|\mathcal{D}2$ ($C$ pour chikungunya) ;
+\item les données concernant les épidémies successives de chikungunya et de Zika en Polynésie française (jeu de données $\mathcal{D}3$) permettent d'obtenir les distributions postérieures de $\beta_D|\mathcal{D}3$ et $\omega|\mathcal{D}2$, c'est à dire respectivement du ratio des paramètres de transmission du Zika par rapport au chikungunya, et l'odds-ratio des paramètres de signalement du Zika par rapport au chikungunya, si on conserve les notations introduites au paragraphe \ref{sec:presenttsir} ;
+\item les distributions {\em a priori} attribuées à  $\mathcal{R}_{0,Z}$ et $\rho_Z$ sont alors obtenues en combinant deux à deux les distributions postérieures précédentes :
+\begin{equation}
+\mathcal{R}_{0,Z}|\mathcal{D}2,\mathcal{D}3 = \mathcal{R}_{0,C}|\mathcal{D}2 \times \beta_D|\mathcal{D}3
+\end{equation}
+\begin{equation}
+\rho_Z|\mathcal{D}2,\mathcal{D}3 = \rho_C|\mathcal{D}2 \times \omega|\mathcal{D}2
+\end{equation}
+\end{itemize}
+
+En d'autres termes, $\mathcal{R}_{0,Z}|\mathcal{D}2,\mathcal{D}3$ et $\rho_Z|\mathcal{D}2,\mathcal{D}3$ sont une expression de la valeur attendue pour $\mathcal{R}_{0,Z}$ et $\rho_Z$ pour une épidémie de Zika dans une île des Antilles sachant ce qui a été observé durant l'épidémie de chikungunya {\em dans cette même île} et durant les épidémies de Polynésie.
+Ces distributions a priori sont donc qualifiées de \guillemotleft locales\guillemotright.
+Alternativement, nous avons aussi utilisé des distributions a priori \guillemotleft régionales\guillemotright, obtenues de façon similaires mais basées sur les distribution des hyperparamètres régissant la structure hiérarchique des modèles utilisés, et donc pouvant être utilisées pour n'importe quelle île de la région présentant des caractéristiques similaires aux îles ici étudiées.
+
+
+
+\section[Article 2]{Article 2 : \guillemotleft Improving early epidemiological assessment of emerging {\em Aedes}-transmitted epidemics using historical data\guillemotright}
+\includepdf[pages={1-18}]{Articles/plosntd.pdf}
+%\includepdf[pages={1-22}]{Articles/plosntd2.pdf}
+
+\section{Principaux résultats}
+
+Cette étude indique qu'il est possible d'améliorer sensiblement la fiabilité des prédictions épidémiques précoces en situation d'émergence de Zika en prenant en compte l'information issue d'autres épidémies similaires de Zika et de chikungunya ayant eu lieu dans le passé.
+Jusqu'à ce que le pic d'incidence soit atteint, les prédictions réalisées en utilisant des distributions a priori informatives avaient systématiquement une meilleure précision et une meilleure acuité.
+Logiquement, les distributions locales, plus spécifiques, amenaient à de meilleurs résultats que les distributions régionales.
+Plus concrètement, les prédictions réalisées précocement sans information a priori aboutissaient en moyenne à surestimer la taille finale de l'épidémie d'un facteur 3,3 (de 0,2 à 5,8) et l'incidence maximale de l'épidémie d'un facteur 15,3 (de 2,0 à 63,1).
+Par contraste, l'utilisation des distribution a priori locales permettait d'obtenir des prédictions en moyenne 1,1 fois trop élevée (de 0,4 à 1,5) pour la taille épidémique finale, et 2,4 fois trop élevées (de 1,3 à 3,9) pour l'incidence maximale. 
+L'amélioration apportée par les données historiques était moins claire concernant les prédictions de la date du pic d'incidence ou de la date de fin de la période de circulation autochtone intense.
 
 \section{Commentaires et perspectives}
-\sectionmark{ }
+
+Prédire les conséquences d'une épidémie émergente dès son stade précoce est difficile.
+Cette étude explore une approche basée sur l'utilisation d'informations pré-existantes pour améliorer la qualité de ces prédictions.
+Les épidémies successives de chikungunya et de Zika dans les Antilles procurent un cas d'étude particulièrement favorable, avec des épidémies rapprochées, survenant dans les mêmes zones, et causées par des maladies partageant de nombreuses similitudes.
+Les relations proches entre ces épidémies ont d'ailleurs été mises en évidence dans l'étude présentée au chapitre 3, suggérant qu'il est possible d'utiliser les informations obtenues sur les dynamiques épidémiques d'une épidémie pour aider à la prédiction de l'autre, un concept appelé {\em transportabilité} \cite{pearl2014external}.
+
+Pour autant, l'amélioration de la qualité des prédictions est très sensible, montrant le potentiel de la méthodologie proposée, basée sur l'utilisation de modèles hiérarchiques et de distributions a priori informatives.
+En effet, les modèles hiérarchiques sont particulièrement adaptés aux tâches de prédiction, car ils permettent de mettre en commun l'information provenant de plusieurs épidémies, et de capturer la variabilité existant à l'intérieur d'une localité, et celle existant entre les localités \cite{gelman2006multilevel}.
+D'autre part, l'utilisation de distributions a priori informatives, et plus généralement des statistiques Bayésiennes, est appropriée pour ce travail qui repose en partie sur la gestion de l'incertitude. 
+
+Alors que la prédiction précoces des conséquences des épidémies émergentes suscite de plus en plus d'intérêt, comme le montrent les récent concours mis en place pour la prédiction de la grippe \cite{flu2017}, d'Ebola \cite{viboud2017rapidd} ou du chikungunya \cite{darpa2014}, ce travail démontre que mieux comprendre les épidémies du passé et leurs relations peut mener concrètement à de meilleures prédiction, et donc à une meilleure préparation face aux émergences à venir.
+Dans ce contexte, il est important de soutenir les travaux systématiques de documentation et d'analyse des épidémies passées \cite{tycho_nejm_2013}, ainsi que les travaux encore rares d'épidémiologie comparée.
+Plus prosaïquement, notre approche et son application au chikungunya et au Zika pourrait s'avérer directement utile en cas de nouvelle émergence de maladie transmise par les moustiques du genre {\em Aedes}, une fois que la transportabilité des informations entre ces trois maladies aura pu être établie.
