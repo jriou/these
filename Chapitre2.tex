@@ -1,13 +1,13 @@
-\chapter{Modèles de maladies vectorielles}
+\chapter{Modèles de transmission des maladies vectorielles}
 \chaptermark{}
 
 
 
-Les modèles de maladies vectorielles trouvent leur origine dans les travaux de Ronald Ross sur le paludisme, qui développa une approche mathématique incluant le cycle complet de transmission d'un pathogène entre populations d'hôtes et populations de vecteurs, ainsi que les relations entre ces entités.
+Les modèles de transmission des maladies vectorielles trouvent leur origine dans les travaux de Ronald Ross sur le paludisme, qui développa une approche mathématique incluant le cycle complet de transmission d'un pathogène entre populations d'hôtes et populations de vecteurs, ainsi que les relations entre ces entités.
 Cette approche, étendue et formalisée par George Macdonald, est toujours très influente aujourd'hui, et constitue l'aboutissement d'une théorie plus générale des dynamiques épidémiques et du contrôle des maladies transmises par les moustiques qui se développe à partir de la fin du XIX\textsuperscript{ème} siècle \cite{smith2012ross}.
 D'autres types de modèles ont par la suite été développés pour modéliser les maladies vectorielles, qui se différencient par la manière de prendre en compte les populations de vecteurs.
 Dans ce chapitre, nous nous attacherons à retracer les avancées conceptuelles et techniques qui ont conduit aux différents types de modèles utilisés de nos jours.
-Nous présenterons aussi un tour d'horizon des principales applications de ces modèles, avec une attention spéciale pour le chikungunya et le Zika.
+Nous présenterons aussi les résultats des principales applications de ces modèles, avec une attention spéciale pour le chikungunya et le Zika.
 
 \section[Ross, Macdonald \& le paludisme]{Ross, Macdonald et le développement des modèles de transmission du paludisme}
 
@@ -23,7 +23,7 @@ I_{t+1} = \hat{V}\frac{I_t}{N}(N-I_t)-rI_t
 où $N$ est le nombre total d'humains, $r$ le taux de guérison et $\hat{V}$ est une mesure similaire à la capacité vectorielle, qui résume à la fois le nombre et l'activité des moustiques \cite{lotka1923contribution}. 
 Ce modèle met en évidence la relation non-linéaire qui existe entre le nombre de vecteurs et l'intensité de la transmission. 
 Ross suggère ainsi qu'il n'est pas nécessaire d'éliminer tous les moustiques pour contrôler la maladie, mais qu'il existe une population limite en dessous de laquelle la transmission soutenue du paludisme n'est plus possible, ce qui a des conséquences importantes pour les stratégies de lutte antivectorielles qui commencent à se développer à cette époque.
-Les travaux de Ross furent vite reconnus, et ont largement contribué au développement de l'épidémiologique quantitative, notamment influençant directement William Kermack et Anderson Mackendrick qui publient en 1927 leur théorie mathématique des épidémies, qui mènera au modèle SIR \cite{kermack1927contributions}.
+Les travaux de Ross furent vite reconnus, et ont largement contribué au développement de l'épidémiologie quantitative, notamment influençant directement William Kermack et Anderson Mackendrick qui publient en 1927 leur théorie mathématique des épidémies, qui mènera au modèle SIR \cite{kermack1927contributions}.
 
 Ces recherches furent poursuivies dans les années 1950 par George Macdonald, dans le contexte du lancement du programme d'éradication globale du paludisme par l'Organisation Mondiale de la Santé.
 S'appuyant sur les travaux de Ross, Macdonald aboutit à la formulation d'un modèle reflétant directement le cycle biologique du parasite \cite{macdonald1952analysis,koella1991use}.
@@ -93,7 +93,7 @@ V=
 \begin{bmatrix} \frac{\partial \mathcal{V}_1 }{\partial w} & \frac{\partial \mathcal{V}_1 }{\partial z} \\ \frac{\partial \mathcal{V}_2 }{\partial w} & \frac{\partial \mathcal{V}_2 }{\partial z} \end{bmatrix} =
 \begin{bmatrix} r & 0 \\ 0 & g \end{bmatrix}
 \end{equation}
-On chercher ensuite la plus grande valeur propre de 
+On cherche ensuite la plus grande valeur propre de 
 \begin{equation}
 FV^{-1} = \begin{bmatrix} 0 & mab  \\ ace^{-vg} & 0 \end{bmatrix} \frac{1}{rg} \begin{bmatrix} g & 0 \\ 0 & r \end{bmatrix} = \begin{bmatrix} 0 & \frac{mab}{g}  \\ \frac{ace^{-vg}}{r} & 0 \end{bmatrix}
 \end{equation}
@@ -198,7 +198,7 @@ On retrouve avec ce premier exemple la base des modèles de type Ross-Macdonald,
 \end{itemize}
 Des adaptations ont été apportées au modèle par la suite, suivant l'évolution des besoins et des connaissances biologiques et entomologiques.
 Pour autant, les hypothèses et la structure des modèles de type Ross-Macdonald restent largement d'actualité. 
-Une revue systématiques a ainsi rapporté que plus de la moitié des modèles de maladies vectorielles publiés entre 1970 et 2010 ne déviaient pratiquement pas de cette approche \cite{reiner_systematic_2013}.
+Une revue systématique a ainsi rapporté que plus de la moitié des modèles de maladies vectorielles publiés entre 1970 et 2010 ne déviaient pratiquement pas de cette approche \cite{reiner_systematic_2013}.
 C'est surtout dans l'utilisation qui est faite des méthodes de modélisation qu'une évolution a été visible, en lien avec le développement des systèmes de surveillance épidémiologique.
 Initialement, les modèles étaient surtout utilisés comme des outils théoriques, avec pour objectif de mieux comprendre la transmission et de cibler les mesures de prévention et de contrôle, ou bien pour une estimation de type qualitatif d'un risque d'épidémie en se basant sur des mesures entomologiques.
 L'abondance et la relative fiabilité des données d'incidence ou de séroprévalence dans les populations humaines, contrastant avec la difficulté des mesures entomologiques, ont entraîné une modification des pratiques, avec pour objectifs premiers l'estimation directe des dynamiques épidémiques, en particulier par la mesure du nombre de reproduction de base $\mathcal{R}_0$, la quantification des facteurs influençant ces dynamiques, et dans certains cas la prédiction ou la simulation d'épidémies en population.
@@ -237,7 +237,7 @@ Ce modèle fut utilisé pour étudier l'efficacité des pulvérisations d'insect
 
 Le modèle de Bailey a à son tour été la base d'un certain nombre de modèles de transmission de la dengue et d'autres maladies transmises par les moustiques du genre {\em Aedes}, dont le chikungunya et le Zika qui nous intéressent ici.
 Concernant le chikungunya, les premiers travaux de modélisation inspirés de Bailey ont été publiés à la suite à l'épidémie en deux vagues de la Réunion en 2005 et 2006.
-Bacaër (2007) propose une première analyse de l'épidémie de la Réunion en utilisant un modèle proche de celui de Bailey, apportant deux principales adaptations : prise en compte des périodes d'incubation extrinsèque et intrinsèques, et introduction d'un cycle saisonnal du nombre total de vecteurs par une fonction sinusoïdale \cite{bacaer2007approximation}. 
+Bacaër (2007) propose une première analyse de l'épidémie de la Réunion en utilisant un modèle proche de celui de Bailey, apportant deux principales adaptations : prise en compte des périodes d'incubation extrinsèque et intrinsèque, et introduction d'un cycle saisonnal du nombre total de vecteurs par une fonction sinusoïdale \cite{bacaer2007approximation}. 
 Il obtient une estimation de $\mathcal{R}_0$ de 3,4.
 %Le modèle proposé par Nicolas Bacaër en 2007 est symptomatique d'une approche moderne basée sur les modèles de type Ross-Macdonald, articulée non plus autour de mesures entomologiques (pratiquement inexistantes à la Réunion), mais plutôt basée sur des données de surveillance en population \cite{bacaer2007approximation}.
 %Ainsi, la distinction entre le nombre de piqûres par vecteur ($a$) et la probabilité qu'une piqûre résulte en une infection chez l'homme ($b$) ou le vecteur ($c$) disparaît au profit d'un seul paramètre représentant la transmission d'hôte à vecteur et de vecteur à hôte $\beta=ab=ac$.
@@ -266,7 +266,7 @@ Dumont et coll. (2008) utilise un modèle différent, prenant en compte le stade
 Cette approche aboutit à des estimations de $\mathcal{R}_0$ dans différentes villes de la Réunion variant entre  0,89 et 2,12.
 Toutefois, ces deux articles se concentrent principalement sur des considérations théoriques générales, explorant les caractéristiques des modèles choisis, et les estimations de $\mathcal{R}_0$ sont obtenues en faisant varier les valeurs des différents paramètres. 
 
-D'autres travaux utilisant des modèles similaires se sont attachés un peu plus tard à analyser de manière plus empirique les dynamiques de certaines épidémies de chikungunya.
+D'autres travaux utilisant des modèles similaires se sont attachés par la suite à analyser de manière plus empirique les dynamiques de certaines épidémies de chikungunya.
 Poletti et coll. (2011) analyse l'épidémie italienne à l'aide d'un modèle incluant quatre stades de développement du moustique (\oe uf, larve, pupe et adulte) ainsi que l'effet de la température sur chaque étape de maturation, et aussi la possibilité pour un humain d'être infecté mais asymptomatique \cite{poletti2011transmission}.
 Cette fois, le modèle est ajusté aux données d'incidence par la minimisation d'une fonction de distance entre données observées et données simulées, faisant intervenir le taux de déclaration des cas symptomatiques.
 Il s'agit donc d'un modèle ayant pour objectif premier l'{\em inférence} des dynamiques d'une épidémie spécifiques à partir de données de surveillance humaine en l'absence de mesures entomologiques, c'est à dire l'estimation des valeurs de paramètres inconnus et de leur incertitude.
