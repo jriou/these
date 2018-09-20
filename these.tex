@@ -1,0 +1,162 @@
+\documentclass[a4paper,12pt]{book} 
+\usepackage[frenchb]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[np]{numprint} % virgule
+\usepackage[T1]{fontenc} % césure
+\usepackage{lmodern} % polices
+\usepackage[margin=25mm,bindingoffset=6mm]{geometry} % marges larges : indispensable pour la lisibilité.
+\usepackage{tikz}
+
+\usepackage{pdfpages} % inclure un PDF (article...)
+\usepackage{amsmath, mathtools} % maths
+\usepackage{icomma} %util. virgule comme séparateur décimal
+
+\pagestyle{headings} %% Personalisation des entêtes standard
+\usepackage{slantsc}
+
+\numberwithin{equation}{chapter}
+\numberwithin{figure}{chapter}
+\numberwithin{table}{chapter}
+
+\usepackage{longtable}
+
+\usepackage{multirow}
+
+%\renewcommand{\thefootnote}{\alph{footnote}}
+
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{setspace}
+
+\usepackage[toc,page]{appendix} 
+\renewcommand{\appendixtocname}{Annexes}
+\renewcommand{\appendixpagename}{Annexes} 
+
+\begin{document}
+
+\frontmatter %numbering \roman
+\thispagestyle{empty}
+
+
+\includegraphics[width=6cm]{Figures/LogoSorbonne.pdf}
+
+\begin{center}
+\vspace*{.4cm}
+
+{\bf  TH\`ESE DE DOCTORAT DE \\[.5em] SORBONNE UNIVERSITÉ }
+
+\vspace*{.6cm}
+spécialités 
+ 
+Épidémiologie et Biostatistiques
+
+
+\vspace*{.6cm}
+École doctorale \guillemotleft Pierre Louis\guillemotright\ de santé publique à Paris
+
+{\small Épidémiologie et Sciences de l'Information Biomédicale}
+
+\vspace*{.8cm}
+présentée par
+
+\vspace*{0.2cm}
+{\bf M. Julien Riou}
+
+\vspace*{.6cm}
+pour obtenir le grade de
+
+\vspace*{0.2cm}
+{\bf Docteur de Sorbonne Université}
+
+\vspace*{.8cm}
+\begin{flushleft}
+	\underline{\smash{Sujet de la thèse :}}
+\end{flushleft}
+
+{\bf Épidémiologie comparée et prédictive des épidémies de \\
+\vspace*{0.2cm}
+maladies transmises par les moustiques du genre {\em Aedes}: \\
+\vspace*{0.2cm}
+application aux virus Zika et chikungunya}
+
+\end{center}
+
+\vspace*{.6cm} 
+soutenue le 29 octobre 2018
+
+\vspace*{.6cm} 
+devant le jury composé de : 
+\vspace*{.1cm} 
+\begin{center}
+
+\begin{tabular}{p{10cm} r}
+  M. le Professeur Pierre-Yves Boëlle & Directeur de thèse\\
+  M. le Professeur Bernard Cazelles & Examinateur  \\
+  Mme le Docteur Anne Cori & Rapporteur  \\
+  M. le Professeur Jean Gaudart & Rapporteur \\
+\end{tabular}
+
+\vspace{1cm}
+{\footnotesize \begin{tabular}{p{6cm} r}
+\hline \\[-1.5ex]
+Sorbonne Université & Tél. Secrétariat : 01 42 34 68 35 \\
+Bureau d’accueil, inscription des    & Fax : 01 42 34 68 40 \\
+doctorants et base de données &Tél. pour les étudiants de A à EL : 01 42 34 69 54 \\
+Esc G, 2ème étage &Tél. pour les étudiants de EM à MON : 01 42 34 68 41 \\
+15 rue de l’école de médecine &Tél. pour les étudiants de MOO à Z : 01 42 34 68 51 \\
+75270 PARIS CEDEX 06 & E-mail : scolarite.doctorat@upmc.fr \\
+\end{tabular}}
+
+\end{center}
+
+
+
+
+
+\cleardoublepage
+
+\input{Preface.tex} 
+
+\tableofcontents
+
+\listoffigures
+
+\listoftables
+
+
+\doublespacing
+\mainmatter % numbering \arabic + reset \page counter
+
+\input{Intro.tex}
+
+\input{Chapitre1.tex}
+
+\input{Chapitre2.tex}
+
+\input{Chapitre3.tex}
+
+\input{Chapitre4.tex}
+
+
+\input{Conclusion}
+
+\backmatter
+\singlespacing
+
+\bibliography{biblio}
+\bibliographystyle{unsrt}
+
+\begin{appendices}
+\chapter{Annexe A : Informations complémentaires à l'article 1}
+\includepdf[pages={1-16}]{Articles/epidemics2.pdf}
+\chapter{Annexe B : Informations complémentaires à l'article 2}
+\includepdf[pages={1-22}]{Articles/plosntd2.pdf}
+\end{appendices}
+
+
+
+\end{document}

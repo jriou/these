@@ -1,0 +1,104 @@
+
+\vspace*{4cm}
+\begin{center}
+Thèse préparée dans le cadre du réseau doctoral en santé publique \\ animé par l’EHESP
+\end{center}
+\vspace*{4cm}
+
+\begin{center}
+\textbf{\Large{Laboratoire de rattachement}}
+\vspace{2em}
+
+{\bf Sorbonne Université, INSERM \\ 
+Institut Pierre Louis d’Épidémiologie et de Santé Publique} \\
+Directrice : Mme Dominique Costagliola
+
+\vspace{2em}
+{\bf Équipe 1 -- Surveillance et modélisation des maladies transmissibles} \\
+Responsable : M. Pierre-Yves Boëlle
+
+\vspace{2em}
+Faculté de médecine Pierre et Marie Curie, site Saint-Antoine \\
+27, rue de Chaligny \\
+75571 Paris cedex 12 \\
+France
+\end{center}
+
+\clearpage
+\chapter*{Remerciements}
+\vspace{2em}
+
+Je souhaiterais exprimer ma profonde reconnaissance à Pierre-Yves Boëlle pour la confiance qu'il m'a accordé, et pour tout ce qu'il m'a appris avec patience au fil des années. 
+J'aimerais également remercier Chiara Poletto, qui a participé à toutes les étapes de ce travail de thèse, et s'est toujours attachée à apporter un angle pertinent et différent. 
+C'était un réel plaisir de travailler tous les trois, et ça me manquera. 
+Je remercie les membres du jury pour avoir accepté d'évaluer mon travail.
+J'adresse aussi mon meilleur souvenir à Nathanaël Lapidus, Gilles Hedjblum et Fabrice Carrat, ainsi qu'à celles et ceux qui se sont succédé dans les couloirs du bâtiment Caroli, en particulier Thomas, Olivier, Shéhérazade, Jean-Simon et Isman, sans oublier les collègues de l'école doctorale, Cécile, Léa, Alexandre, Sofia, Tariq, Caroline et Francesco.
+Sur un plan plus personnel, je voudrais remercier Sarah, ma compagne, pour tous les petits sacrifices consentis et pour son affection toujours renouvelée, ainsi que mon frère Mathis, mes grands-parents, Odile, Laure et René, et mes parents, Jacqueline et François, pour leur soutien inconditionnel.
+
+
+
+\clearpage
+\chapter*{Résumé de la thèse}
+\vspace{2em}\doublespacing
+
+Les moustiques du genre \textit{Aedes}, en particulier \textit{Ae. aegypti} et \textit{Ae. albopictus}, ont connu une augmentation considérable de leurs densités de population et de leurs distributions géographiques au cours des dernières décennies, en lien avec l’urbanisation croissante et l’augmentation des échanges internationaux. 
+Parallèlement, nous avons observé une résurgence des maladies transmises par ces vecteurs, avec notamment les émergences récentes du chikungunya à partir de 2005 et du Zika à  partir de 2007.
+Des maladies plus anciennes comme la dengue ou la fièvre jaune ont aussi causé des épidémies de taille inhabituelle en Afrique et en Amérique du sud.
+Dans ce contexte, un premier objectif de ce travail a été de montrer que des maladies différentes mais présentant un certain nombre de similitudes (transmission par les même vecteurs, circulation dans les même territoires dans les mêmes populations), avaient des dynamiques épidémiques semblables.
+Nous avons analysé conjointement dix-huit épidémies successives de Zika et de chikungunya dans neuf îles de Polynésie française et des Antilles françaises en estimant séparément les effets du virus, du territoire et des conditions météorologiques. 
+Nous avons montré que le Zika et le chikungunya ont des niveaux de transmissibilité similaires quand ils circulent dans le même territoire (ratio de transmission 1,04 [intervalle de crédibilité à 95\%: 0.97-1.13]) mais que les taux de détection étaient plus faibles pour le Zika (odds-ratio 0,37 [IC95\%: 0,34-0,40]). 
+Des fortes précipitations étaient associées à une baisse de transmission deux semaines plus tard, puis à une augmentation renouvelée après un délai de quatre à six semaines. 
+Après la prise en compte de ces facteurs, une hétérogénéité persistait entre les différentes îles, soulignant l'importance de caractéristiques spécifiques aux populations et aux territoires touchés.
+Ces résultats, en quantifiant les relations entre maladies différentes, suggèrent qu'il est possible de prévoir l'évolution d'une épidémie dans un territoire donné en utilisant des informations sur d'autres épidémies transmises par le même vecteur par le passé. 
+Dans un second travail, nous avons examiné cette hypothèse, l'appliquant rétrospectivement aux émergences de Zika dans trois îles des Antilles françaises.
+Les résultats indiquent qu'en situation d’émergence épidémique de Zika, l’utilisation de données historiques concernant des épidémies antérieures de chikungunya dans les mêmes territoires permet d’améliorer considérablement la fiabilité des prédictions réalisées à un stade précoce.
+Cette approche, basée sur des modèles épidémiques hiérarchiques et sur l'utilisation de distributions a priori informatives, pourrait dans certaines situations améliorer l'état de préparation des systèmes sanitaires faisant face à une nouvelle émergence.
+
+\newpage
+\chapter*{Thesis summary}
+\vspace{2em}
+
+Two mosquito species belonging to the {\em Aedes} genus, {\em Ae. aegypti} and {\em Ae. albopictus}, have experienced in the last few decades a steep increase in population density and geographical range, in relation with the growth of urbanization and international trade.
+At the same time, we have observed a resurgence of diseases transmitted by these vectors, with in particular the recent emergence of chikungunya since 2005 and Zika since 2007.
+Known diseases such as dengue or yellow fever have also caused unusual epidemics in Africa and South America.
+In this context, a first objective of this work was to show that different diseases presenting a number of similarities (transmission by the same vectors, circulation in the same populations of the same territories), were associated with similar epidemic dynamics.
+We jointly analysed eighteen successive outbreaks of Zika and chikungunya in nine islands of French Polynesia and the French Antilles, disentangling the respective effects of the virus, territory and weather conditions. 
+We showed that Zika and chikungunya have similar transmissibility levels when circulating in the same territory (transmission ratio 1.04 [95\% credibility interval: 0.97-1.13]) but that reporting rates were lower for Zika (odds-ratio 0.37 [95\% CI: 0.34-0.40]). 
+Heavy precipitation was associated with a decrease in transmission two weeks later, then a renewed increase after a delay of four to six weeks. 
+After taking these factors into account, heterogeneity persisted between the different islands, highlighting the importance of specific characteristics of the affected populations and territories.
+By quantifying the relationships between different diseases, these results suggest that it is possible to forecast the evolution of an epidemic in a given territory by using information from other epidemics transmitted by the same vector in the past. 
+In a second work, we tested this hypothesis, applying it retrospectively to the emergence of Zika in three islands of the French West Indies.
+The results indicate that, during a Zika outbreak, the use of historical data on previous chikungunya outbreaks in the same territories significantly improves the reliability of forecasts made at an early stage.
+This approach, based on hierarchical epidemic models and the use of informative prior distributions, could in some situations improve the preparedness of health systems facing a new emergence.
+
+\clearpage\singlespacing
+\chapter*{Productions scientifiques}
+\vspace{2em}
+
+\subsection*{Publications}
+
+\noindent Julien Riou, Chiara Poletto, Pierre-Yves Boëlle. A comparative analysis of Chikungunya and Zika transmission. {\em Epidemics}, 19:43--52, 2017. doi: 10.1016/j.epidem.2017.01.001 
+
+\vspace{1.5em}
+
+\noindent Julien Riou, Chiara Poletto, Pierre-Yves Boëlle. Improving early epidemiological assessment of emerging {\em Aedes}--transmitted epidemics using historical data. {\em PLoS Neglected Tropical Diseases}, 12(6):e0006526, 2018. doi:10.1371/journal.pntd.0006526
+
+
+\subsection*{Posters}
+
+\noindent Julien Riou, Chiara Poletto, Pierre-Yves Boëlle. Analyse comparative de la transmission du chikungunya et du Zika. \textit{Séminaire annuel de l'école doctorale Pierre Louis de santé publique}, Saint-Malo, octobre 2016 (prix du meilleur poster).
+
+\vspace{1.5em}
+\noindent Julien Riou, Chiara Poletto, Pierre-Yves Boëlle. Analyse comparative de la transmission du chikungunya et du Zika. \textit{Rencontres scientifiques du réseau doctoral de l'EHESP}, Rennes, mars 2017.
+
+\vspace{1.5em}
+\noindent Julien Riou, Chiara Poletto, Pierre-Yves Boëlle. Améliorer l'évaluation précoce des épidémies émergentes de maladies transmises par les moustiques du genre {\em Aedes} grâce aux données historiques. \textit{Séminaire annuel de l'école doctorale Pierre Louis de santé publique}, Saint-Malo, octobre 2017.
+
+\vspace{1.5em}
+\noindent Julien Riou, Chiara Poletto, Pierre-Yves Boëlle. A comparative analysis of Chikungunya and Zika transmission. \textit{Epidemics$^6$}, Sitges, Espagne, novembre 2017.
+
+\vspace{1.5em}
+\noindent Julien Riou, Chiara Poletto, Pierre-Yves Boëlle. Improving early epidemiological assessment of emerging {\em Aedes}--transmitted epidemics using historical data. \textit{Epidemics$^6$}, Sitges, Espagne, novembre 2017.
+
+\vspace{1.5em}
+\noindent Julien Riou, Chiara Poletto, Pierre-Yves Boëlle. A comparative analysis of Chikungunya and Zika transmission. \textit{Stan-Con}, Monterey, Californie, janvier 2018.
